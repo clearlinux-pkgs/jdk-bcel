@@ -1,0 +1,7 @@
+#cp %{SOURCE1} pom.xml
+python3 /usr/share/java-utils/mvn_alias.py : bcel: apache:
+python3 /usr/share/java-utils/mvn_file.py : bcel
+
+# different path in test
+sed -i '\|lib/dt\.jar|s|javaHome|javaHome.substring(0, javaHome.length() - 4)|' \
+        src/test/java/org/apache/bcel/PerformanceTest.java
